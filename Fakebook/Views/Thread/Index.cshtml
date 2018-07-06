@@ -5,9 +5,9 @@
 
 <div class="container">
     <div class="row">
-        <h2>Posts</h2>
+        <h2>Canciónes Recomendadas</h2>
         <div class="pull-right">
-            @Html.ActionLink("Nuevo Post", "Create", new { }, new { @class = "glyphicon glyphicon-plus" })
+            @Html.ActionLink("Nueva Recomendación", "Create", new { }, new { @class = "glyphicon glyphicon-plus" })
         </div>
     </div>
     
@@ -17,11 +17,13 @@
     {
         <div class="form-group">
             <div>
-                @Html.ActionLink(thread.Title, "Detail", new { _id = thread.Id })
+                @Html.ActionLink(thread.Title, "Detail", new { _id = thread.Id } ,new{@class= "title-song"})
                 
                 <br />
-                @Html.Label(thread.GetNameCategory(thread.IdCategory, Model.Categories))
+                @Html.Label("Genero:")
+                @Html.Label(thread.GetNameCategory(thread.IdCategory, Model.Categories), new { style = "color:#8A2BE2;" })
                 <br />
+                @Html.Label("Fecha recomendación:")
                 @Html.Label(thread.Created.ToString("dd/MM/yyyy"))
             </div>
             <div >

@@ -1,4 +1,5 @@
 ﻿body {
+   font-family: "Times New Roman", Times, serif;
 }
 
 
@@ -6,4 +7,8 @@
     border: 0; 
     height: 0; 
     box-shadow: 0 1px 5px 1px purple;
+}
+
+.title-song{
+    font-size: 50px;
 }

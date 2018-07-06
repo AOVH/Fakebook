@@ -23,7 +23,7 @@ namespace Fakebook.Controllers
 
         public ActionResult Create()
         {
-            ViewBag.State = "Nuevo Post";
+            ViewBag.State = "Nueva Recomendación";
             using (FakebookContext Fk = new FakebookContext())
             {
                 //Creamos una instancia de un nuevo post
@@ -39,7 +39,7 @@ namespace Fakebook.Controllers
 
         public ActionResult Edit(int _id)
         {
-            ViewBag.State = "Edit Post";
+            ViewBag.State = "Editar Recomendación";
             using (FakebookContext Fk = new FakebookContext())
             {
                 //Creamos una instancia de un post para colocar nuesto elemnto editado
