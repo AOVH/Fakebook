@@ -1,0 +1,49 @@
+﻿@model Fakebook.ViewModels.DetailThread
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detalle Post ID: @Model.Thread.Id</h2>
+
+<div class="container">
+    <div class="row">
+        @Html.Label(Model.Thread.Title)<br />
+        @Html.Label(Model.Thread.Description)<br />
+
+
+        @Html.Label(Model.Thread.Created.ToString("dd/MM/yyyy"))
+    </div>
+    <br />
+    <div class="row">
+        @using (Html.BeginForm("AddComment", "Comment"))
+        {
+            <div class="form-group">
+                @Html.Label("Nombre")
+                @Html.TextBoxFor(modelo => modelo.Comment.Author, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.Label("Comentario")
+                @Html.TextAreaFor(modelo => modelo.Comment.CommentText, new { @class = "form-control" })
+            </div>
+            @Html.HiddenFor(modelo=>modelo.Thread.Id)
+            <input class="btn-success" type="submit" value="Comentar" />
+        }
+               
+    </div>
+    <br />
+    <div class="row">
+        <h1>Comentarios</h1><br />
+        @foreach (Fakebook.Models.Comment comment in Model.Comments)
+        {
+            <div class="form-group">
+                <pre>
+                @Html.Label(comment.Author,new { style = "color:blue;" })
+                <br>
+                @Html.Label(comment.CommentText)
+                </pre>
+                
+            </div>            
+
+        }
+    </div>
+</div>

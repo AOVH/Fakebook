@@ -1,0 +1,37 @@
+﻿@model Fakebook.ViewModels.Home
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <h2>Posts</h2>
+        <div class="pull-right">
+            @Html.ActionLink("Nuevo Post", "Create", new { }, new { @class = "glyphicon glyphicon-plus" })
+        </div>
+    </div>
+    
+    
+    <hr class="hr-custom"/>
+    @foreach (Fakebook.Models.Thread thread in Model.Threads)
+    {
+        <div class="form-group">
+            <div>
+                @Html.ActionLink(thread.Title, "Detail", new { _id = thread.Id })
+                
+                <br />
+                @Html.Label(thread.GetNameCategory(thread.IdCategory, Model.Categories))
+                <br />
+                @Html.Label(thread.Created.ToString("dd/MM/yyyy"))
+            </div>
+            <div >
+                @Html.ActionLink("Editar", "Edit", new { _id = thread.Id },new {@class= "glyphicon glyphicon-edit" })
+                @Html.ActionLink("Eliminar", "Delete", new { _id = thread.Id }, new { @class = "glyphicon glyphicon-trash" })
+            </div>
+        </div>
+        <hr class="hr-custom" />
+
+    }
+
+</div>
+
